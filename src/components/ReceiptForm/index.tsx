@@ -36,15 +36,14 @@ export const ReceiptForm: React.FC<IReceiptFormProps> = ({
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+    console.log(form)
     if (!loading) {
       const validArr = fields.map((item) => {
-        return new Object(form).hasOwnProperty(item)
+        return new Object(form).hasOwnProperty(item.split(" ")[0])
           ? form[item] !== ""
           : false;
       });
-
       if (validArr.filter((f) => !f).length === 0) {
-        console.log(form);
         setLoading(true);
         const res = await axios.post(`${SERVER_URL}/sendEmail`, {
           form: form,
@@ -68,7 +67,9 @@ export const ReceiptForm: React.FC<IReceiptFormProps> = ({
       <h1>{logo} Receipt</h1>
       <Styled.ReceiptFormContainer onSubmit={handleSubmit}>
         {fields.map((item, key) => {
-          const field = formItems.filter((f) => f.name === item)[0];
+          const field = formItems.filter(
+            (f) => f.name === item.split(" ")[0]
+          )[0];
           return field.formType === "input" ? (
             <Comp.Input
               required
@@ -80,6 +81,11 @@ export const ReceiptForm: React.FC<IReceiptFormProps> = ({
               }
               key={key}
               {...field}
+              placeholder={
+                item.split(" ")[1]
+                  ? item.split(" ")[1].replaceAll("#", " ")
+                  : ""
+              }
             />
           ) : (
             <Comp.Select

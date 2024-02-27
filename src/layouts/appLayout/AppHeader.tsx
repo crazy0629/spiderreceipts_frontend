@@ -10,3 +10,4 @@ export const AppHeader: React.FC = () => {
     </Styled.AppHeaderWrapper>
   );
 };
+

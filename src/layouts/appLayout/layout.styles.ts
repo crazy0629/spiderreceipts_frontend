@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const AppLayoutWrapper = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   max-width: 1300px;
   width: 95%;
   margin: auto;
@@ -11,12 +11,15 @@ export const AppLayoutWrapper = styled.div`
 
 export const AppContainer = styled.div`
   flex: 1;
-  min-height: 100px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
+
+  @media screen and (max-width:768px){
+    height: fit-content;
+  }
 `;
 
 export const AppHeaderWrapper = styled.div`
@@ -24,6 +27,10 @@ export const AppHeaderWrapper = styled.div`
   padding: 26px 0;
   justify-content: space-between;
   align-items: center;
+
+  @media screen and (max-width: 1024px){
+    flex-direction: column;
+  }
 `;
 
 export const AppFooterWrapper = styled.div`

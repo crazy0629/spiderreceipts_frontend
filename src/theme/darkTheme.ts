@@ -21,6 +21,17 @@ export const darkTheme = {
     border: "#3E3E3E",
     inputBorder: "#21262F",
   },
+  pagination : `
+  .ant-pagination-item{
+    a {color: white};
+  }
+  .ant-pagination-item-active{
+    a {color: #1677ff};
+    background: transparent;
+  }
+  .ant-pagination-item-link {
+    background-color: white !important;
+  }`,
   image: 1,
   logo: "/assets/app_logo_dark.png",
   cong: "/assets/cong_dark.png",

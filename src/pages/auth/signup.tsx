@@ -8,13 +8,14 @@ import axios from "axios";
 import { SERVER_URL } from "../../config";
 import { useNavigate } from "react-router-dom";
 
-export const SignUpPage: React.FC = () => {
+export const SignUp: React.FC = () => {
   const router = useNavigate();
   const [form, setForm] = useState<T.ISignUpFormProps>({
     email: "",
     password: "",
     rPassword: "",
   });
+  const [checkBox, setCheckBox] = useState(true);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -31,11 +32,11 @@ export const SignUpPage: React.FC = () => {
       const res = await axios.post(`${SERVER_URL}/auth/signup`, {
         email: form.email,
         password: form.password,
+        check: checkBox,
       });
       if (res.data.success) {
         toast.success(res.data.message);
         router(`/signin`);
-        // router(`/sendcode?email=${form.email}`);
       } else {
         toast.error(res.data.message);
       }
@@ -71,6 +72,14 @@ export const SignUpPage: React.FC = () => {
             onChange={handleInputChange}
             prefix={<FaIcon.FaLock />}
           />
+          <input
+            type="checkbox"
+            checked={checkBox}
+            onChange={(e) => {
+              setCheckBox(e.target.checked);
+            }}
+          />
+          <span>Sign up for discounts and news.</span>
           <Comp.Button label="Sign Up" onClick={handleSignup} />
         </Styled.AuthFormWrapper>
         <Comp.AuthNavigate
