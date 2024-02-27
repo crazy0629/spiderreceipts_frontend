@@ -1,20 +1,25 @@
 import React, { useState, useEffect } from "react";
 import * as Styled from "./main.styles";
 import * as Comp from "../../components";
-import { AppLayout } from "../../layouts";
 import type * as T from "../../types/components";
-import { logos } from "./data";
-import { useNavigate } from "react-router-dom";
-import jwtDecode from "jwt-decode";
-import { toast } from "react-toastify";
 
-export const MainPage: React.FC = () => {
+import { logos } from "./data";
+
+import { AppLayout } from "../../layouts";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { Home } from "../home";
+import jwtDecode from "jwt-decode";
+
+export const Generator: React.FC = () => {
   const router = useNavigate();
+
   const [currentUser, setCurrentUser] = useState<any>({});
+  
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
-      router("/signin");
+      // router("/signin");
     } else {
       const decode: any = jwtDecode(token);
       if (decode.role) {
@@ -39,6 +44,7 @@ export const MainPage: React.FC = () => {
     logo: "",
     fields: [],
   });
+  
   const [alert, setAlert] = useState<T.IAlertProps>({
     type: "warning",
     message: "Please Log in.",
@@ -50,7 +56,7 @@ export const MainPage: React.FC = () => {
       : toast.error("Please activate your account.");
   };
 
-  return (
+  return currentUser.id ? (
     <AppLayout>
       {selectedItem.logo ? (
         <Comp.ReceiptForm
@@ -64,9 +70,14 @@ export const MainPage: React.FC = () => {
             {logos.map((item, key) => (
               <Styled.LogoItemWrapper
                 key={key}
-                onClick={() =>
-                  handleLogoClick({ logo: item.key, fields: item.fields })
-                }
+                onClick={() => {
+                  console.log(currentUser);
+                  window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                  });
+                  handleLogoClick({ logo: item.key, fields: item.fields });
+                }}
               >
                 <img
                   src={`/assets/logos/${item.key}.png`}
@@ -79,5 +90,7 @@ export const MainPage: React.FC = () => {
         </Styled.MainPageWrapper>
       )}
     </AppLayout>
+  ) : (
+    <Home />
   );
 };

@@ -7,10 +7,18 @@ export const AdminWrapper = styled.div`
   }
   width: 100%;
   height: 100%;
-`;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  ${({ theme }) => theme.pagination};
+  
+  `;
 
 export const AdminTableWrapper = styled.table`
   width: 100%;
+  margin-bottom: 30px;
   &,
   tr,
   td,
@@ -72,3 +80,33 @@ export const AdminTableWrapper = styled.table`
     }
   }
 `;
+
+
+export const Text = styled.div`
+  color: red;
+`
+
+export const OrderButton = styled.div`
+  text-decoration: underline;
+  color: green;
+  cursor: pointer;
+
+`
+
+export const SearchBox = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+`
+export const Label = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+`
+export const Input = styled.input`
+  display: flex;
+  align-items: center;
+  width: 300px;
+
+  font-size: 16px;
+`

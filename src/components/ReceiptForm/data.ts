@@ -283,4 +283,78 @@ export const formItems = [
     formType: "input",
     placeholder: "e.g. 1234",
   },
+  {
+    label: "Phone",
+    name: "phone",
+    formType: "input",
+    placeholder: "",
+  },
+  {
+    label: "Style",
+    name: "style",
+    formType: "input",
+    placeholder: "",
+  },
+  {
+    label: "Invoice Number",
+    name: "invoice_number",
+    formType: "input",
+    placeholder: "",
+  },
+  {
+    label: "VAT",
+    name: "vat",
+    formType: "input",
+    placeholder: "e.g. $10.00",
+  },
+  {
+    label: "SKU",
+    name: "sku",
+    formType: "input",
+    placeholder: "",
+  },
+  {
+    label: "Tax (incl. above)",
+    name: "tax_incl",
+    formType: "input",
+    placeholder: "",
+  },
+
+  {
+    label: "Seller Name",
+    name: "seller_name",
+    formType: "input",
+    placeholder: "",
+  },
+  {
+    label: "Item Id",
+    name: "item_id",
+    formType: "input",
+    placeholder: "",
+  },
+  {
+    label: "Tracking Number",
+    name: "tracking_number",
+    formType: "input",
+    placeholder: "",
+  },
+  {
+    label: "Product Id",
+    name: "product_id",
+    formType: "input",
+    placeholder: "",
+  },
+  {
+    label: "Product Code",
+    name: "product_code",
+    formType: "input",
+    placeholder: "",
+  },
+  {
+    label: "Time",
+    name: "time",
+    formType: "input",
+    placeholder: "",
+  },
+  
 ];

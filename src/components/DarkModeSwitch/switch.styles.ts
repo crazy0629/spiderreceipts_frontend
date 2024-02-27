@@ -5,6 +5,11 @@ export const DarkSwitchWrapper = styled.div`
   right: 40px;
   bottom: 40px;
   z-index: 100;
+
+  @media screen and (max-width: 425px){
+    right: 20px;
+  bottom: 20px;    
+  }
 `;
 
 export const IconWrapper = styled.div`

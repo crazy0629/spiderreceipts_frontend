@@ -9,12 +9,19 @@ export const LogButton = styled.div`
   display: flex;
   align-items: center;
   font-size: 16px;
-  color: ${({ theme }) => theme.logButton.text};
-  border: 1px solid ${({ theme }) => theme.logButton.border};
+  color: #24ff00;
+  border: 2px solid #24ff00;
   &.logout {
-    border: 1px solid red;
+    border: 2px solid red;
     color: red;
   }
+
+  &.changePage {
+    border: 2px solid #6548d9;
+    color: #6548d9;
+  }
+  
+
   cursor: pointer;
   height: 40px;
   padding: 0 16px;
@@ -33,5 +40,16 @@ export const LogButton = styled.div`
     span {
       display: none;
     }
+  }
+`;
+
+export const HomeHeaderButton = styled.div`
+  display: flex;
+  align-items: center;
+
+  .log-button {
+    width: auto;
+    margin-left: 15px;
+    padding: 10px 20px;
   }
 `;

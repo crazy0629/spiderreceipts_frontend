@@ -15,6 +15,8 @@ export const ReceiptFormWrapper = styled.div`
   }
   img {
     filter: invert(${({ theme }) => theme.image});
+    width: 100px;
+    height: 100px;
   }
 `;
 

@@ -39,3 +39,12 @@ p {
   background: #ffffff30;
   border-radius: 10px;
 }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.custom-modal .ant-modal-content {
+
+}

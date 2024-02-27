@@ -21,6 +21,8 @@ export const lightTheme = {
     border: "#D0D5DD",
     inputBorder: "#d0d5dd",
   },
+  pagination : ``,
+
   image: 0,
   logo: "/assets/app_logo_light.png",
   cong: "/assets/cong.png",
